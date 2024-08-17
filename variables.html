@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Interactivo</title>
+    <style>
+        /* Estilos básicos del cuerpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Mensaje mostrado al usuario */
+        .mensaje {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animación de entrada */
+        .mensaje {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Definición de la animación fadeIn */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo del botón de continuar */
+        .btn-continuar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffeb3b;
+            color: #333;
+            font-size: 1em;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-continuar:hover {
+            background-color: #f39c12;
+            color: #fff;
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Programa Interactivo</h1>
+        <div id="mensaje" class="mensaje"></div>
+        <a href="#" class="btn-continuar" onclick="empezar()">Continuar</a>
+    </div>
+
+    <script>
+        function empezar() {
+            // Capturar información del usuario
+            const nombre = prompt("¿Cuál es tu nombre?");
+            const edad = prompt("¿Cuántos años tienes?");
+            const lenguaje = prompt("¿Qué lenguaje de programación estás estudiando?");
+
+            // Crear el mensaje personalizado
+            const mensaje = `Hola ${nombre}, tienes ${edad} años y ya estás aprendiendo ${lenguaje}!`;
+
+            // Mostrar el mensaje en un alert y en el HTML
+            alert(mensaje);
+            document.getElementById("mensaje").innerText = mensaje;
+
+            // Mostrar el mensaje en la consola
+            console.log(mensaje);
+
+            // Hacer la pregunta adicional
+            const respuesta = prompt(`¿Te gusta estudiar ${lenguaje}? Responde con el número 1 para SÍ o 2 para NO.`);
+
+            // Condicionales para mostrar la respuesta adecuada
+            if (respuesta == 1) {
+                const respuestaPositiva = "¡Muy bien! Sigue estudiando y tendrás mucho éxito.";
+                alert(respuestaPositiva);
+                console.log(respuestaPositiva);
+                document.getElementById("mensaje").innerText += `\n${respuestaPositiva}`;
+            }
+
+            if (respuesta == 2) {
+                const respuestaNegativa = "Oh, qué pena... ¿Ya intentaste aprender otros lenguajes?";
+                alert(respuestaNegativa);
+                console.log(respuestaNegativa);
+                document.getElementById("mensaje").innerText += `\n${respuestaNegativa}`;
+            }
+        }
+    </script>
+</body>
+</html>
